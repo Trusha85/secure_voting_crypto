@@ -1,7 +1,7 @@
 let votes = {
     'Elephant': 0,
     'DEER': 0,
-    'AARZOO': 0
+    'LION': 0
 };
 
 let encryptedVotes = [];
@@ -28,9 +28,9 @@ function castVote(candidate) {
     } else if (candidate === 'DEER') {
         vote = 2;
         votes['DEER']++;
-    } else if (candidate === 'AARZOO') {
+    } else if (candidate === 'LION') {
         vote = 3;
-        votes['AARZOO']++;
+        votes['LION']++;
     }
     const encryptedVote = paillierEncrypt(vote, publicKey);
     encryptedVotes.push(encryptedVote);
@@ -44,7 +44,7 @@ function showResults() {
         let resultStr = "Vote counts for each candidate:\n";
         resultStr += `Candidate A: ${votes['Elephant']} votes\n`;
         resultStr += `Candidate B: ${votes['DEER']} votes\n`;
-        resultStr += `Candidate C: ${votes['AARZOO']} votes\n`;
+        resultStr += `Candidate C: ${votes['LION']} votes\n`;
         document.getElementById('results').innerText = resultStr;
     } else {
         alert("Incorrect password! Access denied.");
